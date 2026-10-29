@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Manage Users — IT Helpdesk</title>
+    <link rel="stylesheet" href="../../css/base.css" />
+    <link rel="stylesheet" href="../../css/layout.css" />
+    <link rel="stylesheet" href="../../css/components.css" />
+    <link rel="stylesheet" href="../../css/dashboard.css?v=8" />
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="../../index.html" class="brand">
+                <img src="../../assets/images/ortambo-logo.png"
+                     alt="O.R. Tambo District Municipality"
+                     class="brand-logo" />
+                <div class="brand-text">
+                    <span class="brand-title">IT Helpdesk — Admin</span>
+                    <span class="brand-subtitle">O.R. Tambo District Municipality</span>
+                </div>
+            </a>
+            <nav class="site-nav">
+                <a href="dashboard.html" class="nav-link">Tickets</a>
+                <a href="users.html" class="nav-link nav-link--active">Manage Users</a>
+                <span id="welcomeUser" class="nav-link"></span>
+                <button id="logoutBtn" class="btn btn-outline-dark btn-sm">Sign out</button>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container dashboard">
+
+        <div class="dashboard-header">
+            <div>
+                <h1>Manage Users</h1>
+                <p class="dashboard-subtitle">View all accounts, add technicians, and manage roles.</p>
+            </div>
+            <div style="display: flex; gap: 8px;">
+                <button id="refreshBtn" class="btn btn-outline">Refresh</button>
+                <button id="addTechnicianBtn" class="btn btn-primary">+ Add Technician</button>
+            </div>
+        </div>
+
+        <!-- Filter tabs -->
+        <div class="filter-tabs" id="filterTabs">
+            <button class="tab is-active" data-filter="all">All</button>
+            <button class="tab" data-filter="Admin">Admins</button>
+            <button class="tab" data-filter="Technician">Technicians</button>
+            <button class="tab" data-filter="GeneralStaff">General Staff</button>
+        </div>
+
+        <!-- Users table -->
+        <div class="card" style="margin-top: 20px;">
+            <div id="usersLoading" class="tickets-loading">Loading users…</div>
+            <div id="usersEmpty" class="tickets-empty" style="display:none;">No users to show.</div>
+
+            <table id="usersTable" class="data-table" style="display:none;">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Full Name</th>
+                        <th>Username</th>
+                        <th>Email</th>
+                        <th>Staff No</th>
+                        <th>Role</th>
+                        <th>Office</th>
+                        <th>Registered</th>
+                    </tr>
+                </thead>
+                <tbody id="usersBody"></tbody>
+            </table>
+        </div>
+
+    </main>
+
+    <!-- Add Technician Modal -->
+    <div id="techModal" class="modal-backdrop" style="display:none;">
+        <div class="modal" style="max-width: 640px; max-height: 90vh; overflow-y: auto;">
+            <h3>Add Technician</h3>
+
+            <form id="techForm" novalidate>
+
+                <h4 class="modal-section-title">Personal Details</h4>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>First name <span class="req">*</span></label>
+                        <input type="text" id="tFirstName" class="form-control" required />
+                    </div>
+                    <div class="form-group">
+                        <label>Last name <span class="req">*</span></label>
+                        <input type="text" id="tLastName" class="form-control" required />
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Work email <span class="req">*</span></label>
+                        <input type="email" id="tEmail" class="form-control" required />
+                    </div>
+                    <div class="form-group">
+                        <label>Cell number</label>
+                        <input type="tel" id="tCell" class="form-control" maxlength="12" />
+                    </div>
+                </div>
+
+                <h4 class="modal-section-title">Account Details</h4>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Username <span class="req">*</span></label>
+                        <input type="text" id="tUsername" class="form-control" required />
+                    </div>
+                    <div class="form-group">
+                        <label>Password <span class="req">*</span></label>
+                        <input type="text" id="tPassword" class="form-control"
+                               minlength="6" required />
+                        <small class="form-hint">Minimum 6 characters. Will be emailed to the technician.</small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Staff number <span class="req">*</span></label>
+                    <input type="text" id="tStaffNo" class="form-control" required />
+                </div>
+
+                <h4 class="modal-section-title">Technician Details</h4>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Office number</label>
+                        <input type="text" id="tOfficeNo" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label>Office location</label>
+                        <input type="text" id="tOfficeLocation" class="form-control" />
+                    </div>
+                </div>
+
+                <h4 class="modal-section-title">Organisation Details</h4>
+                <div class="form-group">
+                    <label>Job title <span class="req">*</span></label>
+                    <select id="tJobId" class="form-control" required></select>
+                </div>
+
+                <div class="form-group">
+                    <label>Employment status <span class="req">*</span></label>
+                    <select id="tEStatusId" class="form-control" required></select>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Municipality</label>
+                        <select id="tMid" class="form-control" disabled></select>
+                    </div>
+                    <div class="form-group">
+                        <label>Department <span class="req">*</span></label>
+                        <select id="tDepId" class="form-control" required></select>
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="button" id="cancelTechBtn" class="btn btn-outline">Cancel</button>
+                    <button type="submit" class="btn btn-primary" id="submitTechBtn">Create technician</button>
+                </div>
+
+                <p id="techMessage" class="form-message"></p>
+            </form>
+        </div>
+    </div>
+
+    <script src="../../js/api/apiClient.js"></script>
+    <script src="../../js/auth/session.js"></script>
+    <script src="../../js/pages/adminUsers.js"></script>
+
+</body>
+</html>

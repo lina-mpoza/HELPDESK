@@ -1,0 +1,93 @@
+﻿.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    border: 2px solid transparent;
+    border-radius: var(--radius-sm);
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.15s ease;
+    line-height: 1.2;
+}
+
+.btn-sm {
+    padding: 8px 16px;
+    font-size: 13px;
+}
+
+.btn-lg {
+    padding: 14px 28px;
+    font-size: 15px;
+}
+
+.btn-primary {
+    background: var(--brand-green);
+    color: var(--white);
+    border-color: var(--brand-green);
+}
+
+    .btn-primary:hover {
+        background: #096230;
+        border-color: #096230;
+    }
+
+.btn-outline {
+    background: transparent;
+    color: var(--white);
+    border-color: rgba(255,255,255,0.7);
+}
+
+    .btn-outline:hover {
+        background: var(--white);
+        color: var(--brand-green);
+        border-color: var(--white);
+    }
+
+.btn-block {
+    width: 100%;
+}
+
+.form-group {
+    margin-bottom: 16px;
+}
+
+    .form-group label {
+        display: block;
+        font-size: 13px;
+        font-weight: 600;
+        color: var(--neutral-700);
+        margin-bottom: 6px;
+    }
+
+.form-control {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid var(--neutral-200);
+    border-radius: var(--radius-sm);
+    font-size: 14px;
+    font-family: inherit;
+    background: var(--white);
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+    .form-control:focus {
+        outline: none;
+        border-color: var(--brand-green);
+        box-shadow: 0 0 0 3px rgba(11,122,59,0.15);
+    }
+
+.form-message {
+    display: block;
+    margin-top: 12px;
+    font-size: 13px;
+    color: var(--brand-red);
+}
+
+.card {
+    background: var(--white);
+    border: 1px solid var(--neutral-200);
+    border-radius: var(--radius);
+    padding: 24px;
+    box-shadow: var(--shadow-sm);
+}

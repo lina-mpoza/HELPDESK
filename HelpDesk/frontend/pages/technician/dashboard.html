@@ -1,0 +1,246 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Technician Dashboard — IT Helpdesk</title>
+    <link rel="stylesheet" href="../../css/base.css" />
+    <link rel="stylesheet" href="../../css/layout.css" />
+    <link rel="stylesheet" href="../../css/components.css" />
+    <link rel="stylesheet" href="../../css/dashboard.css?v=8" />
+    <link rel="stylesheet" href="../../css/admin.css" />
+</head>
+<body>
+
+    <div class="admin-shell">
+
+        <!-- ================= SIDEBAR ================= -->
+        <aside class="admin-sidebar">
+
+            <div class="sidebar-brand">
+                <img src="../../assets/images/ortambo-logo.png"
+                     alt="O.R. Tambo District Municipality" />
+                <div class="sidebar-brand-text">
+                    <span class="sidebar-brand-title">IT Helpdesk</span>
+                    <span class="sidebar-brand-sub">Technician</span>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <div class="sidebar-item is-active" data-panel="ticketsPanel">
+                    <span class="item-dot"></span> My Tickets
+                </div>
+                <div class="sidebar-item" data-panel="activityPanel">
+                    <span class="item-dot"></span> Activity
+                </div>
+                <div class="sidebar-item" data-panel="profilePanel">
+                    <span class="item-dot"></span> My Profile
+                </div>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="sidebar-item" id="logoutBtn">
+                    <span class="item-dot"></span> Sign out
+                </div>
+            </div>
+
+        </aside>
+
+        <!-- MAIN -->
+        <main class="admin-main">
+
+            <!-- Top bar -->
+            <div class="admin-topbar">
+                <div class="admin-topbar-left">
+                    Welcome, <strong id="welcomeUser">…</strong>
+                    <span class="admin-badge">Technician</span>
+                </div>
+                <div>
+                    <button id="refreshAllBtn" class="btn btn-outline-dark btn-sm">Refresh</button>
+                </div>
+            </div>
+
+            <div class="admin-content">
+
+                <!-- TICKETS PANEL -->
+                <section id="ticketsPanel" class="admin-panel is-active">
+                    <div class="panel-header">
+                        <div>
+                            <h1>My Assigned Tickets</h1>
+                            <p>Start tickets, work on them, then mark them as resolved.</p>
+                        </div>
+                    </div>
+
+                    <div class="filter-tabs" id="filterTabs">
+                        <button class="tab is-active" data-filter="all">All</button>
+                        <button class="tab" data-filter="Assigned">Assigned</button>
+                        <button class="tab" data-filter="InProgress">In Progress</button>
+                        <button class="tab" data-filter="Resolved">Resolved</button>
+                    </div>
+
+                    <div class="card" style="margin-top: 16px;">
+                        <div id="ticketsLoading" class="tickets-loading">Loading tickets…</div>
+                        <div id="ticketsEmpty" class="tickets-empty" style="display:none;">
+                            No tickets assigned to you yet.
+                        </div>
+
+                        <table id="ticketsTable" class="data-table" style="display:none;">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Submitted</th>
+                                    <th>Description</th>
+                                    <th>From</th>
+                                    <th>Urgency</th>
+                                    <th>Status</th>
+                                    <th>Deadline</th>
+                                    <th>Attachment</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="ticketsBody"></tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- ACTIVITY PANEL -->
+                <section id="activityPanel" class="admin-panel">
+                    <div class="panel-header">
+                        <div>
+                            <h1>Activity</h1>
+                            <p>Recent activity on tickets you have worked on.</p>
+                        </div>
+                        <button id="refreshActivityBtn" class="btn btn-outline">Refresh</button>
+                    </div>
+
+                    <div class="card">
+                        <div id="activityLoading" class="tickets-loading">Loading activity…</div>
+                        <div id="activityEmpty" class="tickets-empty" style="display:none;">
+                            No activity yet.
+                        </div>
+
+                        <div id="activityList" class="activity-list" style="display:none;"></div>
+                    </div>
+                </section>
+
+                <!-- PROFILE PANEL -->
+                <section id="profilePanel" class="admin-panel">
+                    <div class="panel-centered">
+                        <div class="panel-header" style="justify-content: center; text-align: center;">
+                            <div>
+                                <h1>My Profile</h1>
+                                <p>Update your name, email, cell number, or password.</p>
+                            </div>
+                        </div>
+
+                        <div class="card">
+
+                            <div id="profileLoading" class="tickets-loading">Loading profile…</div>
+
+                            <form id="profileForm" style="display:none;">
+
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label>First name <span class="req">*</span></label>
+                                        <input type="text" id="pFirstName" class="form-control" required />
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Last name <span class="req">*</span></label>
+                                        <input type="text" id="pLastName" class="form-control" required />
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Username</label>
+                                    <input type="text" id="pUsername" class="form-control" disabled />
+                                    <small class="form-hint">Username cannot be changed.</small>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Work email <span class="req">*</span></label>
+                                    <input type="email" id="pWorkEmail" class="form-control" required />
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label>Cell number</label>
+                                        <input type="tel" id="pCellNo" class="form-control" maxlength="12" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Staff number</label>
+                                        <input type="text" id="pStaffNo" class="form-control" disabled />
+                                    </div>
+                                </div>
+
+                                <h4 class="modal-section-title">Change password (optional)</h4>
+
+                                <div class="form-group">
+                                    <label>New password</label>
+                                    <input type="password" id="pNewPassword" class="form-control"
+                                           minlength="6" placeholder="Leave blank to keep current password" />
+                                    <small class="form-hint">Minimum 6 characters.</small>
+                                </div>
+
+                                <div class="form-actions" style="justify-content: center;">
+                                    <button type="submit" class="btn btn-primary" id="saveProfileBtn">
+                                        Save changes
+                                    </button>
+                                </div>
+
+                                <p id="profileMessage" class="form-message"></p>
+
+                            </form>
+
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+        </main>
+    </div>
+
+    <!-- RESOLVE MODAL -->
+    <div id="resolveModal" class="modal-backdrop" style="display:none;">
+        <div class="modal">
+            <h3>Resolve ticket <span id="resolveTicketId"></span></h3>
+
+            <form id="resolveForm">
+                <div class="form-group">
+                    <label>What did you do? <span class="req">*</span></label>
+                    <textarea id="resolveNote" class="form-control"
+                              rows="3" maxlength="100"
+                              placeholder="e.g. Replaced the toner cartridge and reset the print spooler."></textarea>
+                    <small class="form-hint"><span id="resolveCharCount">0</span>/100 characters</small>
+                </div>
+
+                <div class="form-actions">
+                    <button type="button" id="cancelResolve" class="btn btn-outline">Cancel</button>
+                    <button type="submit" class="btn btn-primary" id="confirmResolveBtn">Resolve</button>
+                </div>
+
+                <p id="resolveMessage" class="form-message"></p>
+            </form>
+        </div>
+    </div>
+
+    <!-- TIMELINE MODAL -->
+    <div id="timelineModal" class="modal-backdrop" style="display:none;">
+        <div class="modal" style="max-width: 640px; max-height: 85vh; overflow-y: auto;">
+            <h3>Timeline for ticket <span id="timelineTicketId"></span></h3>
+            <div id="timelineLoading" class="tickets-loading">Loading timeline…</div>
+            <div id="timelineEmpty" class="tickets-empty" style="display:none;">
+                No activity recorded for this ticket.
+            </div>
+            <div id="timelineList" class="activity-list" style="display:none;"></div>
+            <div class="form-actions">
+                <button type="button" id="closeTimelineBtn" class="btn btn-outline">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../js/api/apiClient.js"></script>
+    <script src="../../js/auth/session.js"></script>
+    <script src="../../js/pages/technicianDashboard.js"></script>
+
+</body>
+</html>

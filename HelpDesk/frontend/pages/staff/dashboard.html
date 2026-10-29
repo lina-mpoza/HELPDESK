@@ -1,0 +1,690 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>My Tickets — IT Helpdesk</title>
+
+    <link rel="stylesheet" href="../../css/base.css" />
+    <link rel="stylesheet" href="../../css/layout.css" />
+    <link rel="stylesheet" href="../../css/components.css" />
+    <link rel="stylesheet" href="../../css/dashboard.css?v=8" />
+    <link rel="stylesheet" href="../../css/admin.css" />
+</head>
+
+<body>
+
+    <div class="admin-shell">
+
+        <!-- ================= SIDEBAR ================= -->
+        <aside class="admin-sidebar">
+
+            <div class="sidebar-brand">
+                <img src="../../assets/images/ortambo-logo.png"
+                     alt="O.R. Tambo District Municipality" />
+
+                <div class="sidebar-brand-text">
+                    <span class="sidebar-brand-title">IT Helpdesk</span>
+                    <span class="sidebar-brand-sub">Staff</span>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+
+                <div class="sidebar-item is-active" data-panel="ticketsPanel">
+                    <span class="item-dot"></span>
+                    My Tickets
+                </div>
+
+                <div class="sidebar-item" data-panel="profilePanel">
+                    <span class="item-dot"></span>
+                    My Profile
+                </div>
+
+            </nav>
+
+            <div class="sidebar-footer">
+
+                <div class="sidebar-item" id="logoutBtn">
+                    <span class="item-dot"></span>
+                    Sign out
+                </div>
+
+            </div>
+
+        </aside>
+
+
+        <!-- ================= MAIN ================= -->
+        <main class="admin-main">
+
+            <!-- ================= TOP BAR ================= -->
+            <div class="admin-topbar">
+
+                <div class="admin-topbar-left">
+                    Welcome, <strong id="welcomeUser">…</strong>
+
+                    <span class="admin-badge">
+                        General Staff
+                    </span>
+                </div>
+
+                <div>
+                    <button id="refreshAllBtn"
+                            class="btn btn-outline-dark btn-sm">
+                        Refresh
+                    </button>
+                </div>
+
+            </div>
+
+
+            <div class="admin-content">
+
+                <!-- ================= TICKETS PANEL ================= -->
+                <section id="ticketsPanel"
+                         class="admin-panel is-active">
+
+                    <div class="panel-header">
+
+                        <div>
+                            <h1>My Tickets</h1>
+
+                            <p>
+                                View and manage tickets you have submitted.
+                            </p>
+                        </div>
+
+                        <button id="newTicketBtn"
+                                class="btn btn-primary">
+                            + New Ticket
+                        </button>
+
+                    </div>
+
+
+                    <!-- ================= NEW TICKET FORM ================= -->
+                    <div id="newTicketPanel"
+                         class="card"
+                         style="display:none;
+                                border-left: 4px solid var(--brand-green);
+                                margin-bottom: 20px;">
+
+                        <h3 style="margin-bottom: 16px; font-size: 17px;">
+                            Submit a new ticket
+                        </h3>
+
+
+                        <form id="newTicketForm" novalidate>
+
+                            <!-- Issue Description -->
+                            <div class="form-group">
+
+                                <label for="issueDescription">
+                                    Describe the issue
+                                    <span class="req">*</span>
+                                </label>
+
+                                <textarea id="issueDescription"
+                                          class="form-control"
+                                          rows="4"
+                                          maxlength="200"
+                                          placeholder="e.g. My laptop won't connect to the network."></textarea>
+
+                                <small class="form-hint">
+                                    <span id="charCount">0</span>/200 characters
+                                </small>
+
+                            </div>
+
+
+                            <!-- Urgency -->
+                            <div class="form-group">
+
+                                <label for="urgencyLevel">
+                                    Urgency
+                                </label>
+
+                                <select id="urgencyLevel"
+                                        class="form-control">
+
+                                    <option value="Low">
+                                        Low
+                                    </option>
+
+                                    <option value="Medium" selected>
+                                        Medium
+                                    </option>
+
+                                    <option value="High">
+                                        High
+                                    </option>
+
+                                    <option value="Critical">
+                                        Critical
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+
+                            <!-- Attachment -->
+                            <div class="form-group">
+
+                                <label for="attachmentInput">
+                                    Attach a screenshot (optional)
+                                </label>
+
+                                <input type="file"
+                                       id="attachmentInput"
+                                       class="form-control-file"
+                                       accept="image/png,image/jpeg,image/jpg,image/gif,image/webp" />
+
+
+                                <!-- Attachment Preview -->
+                                <div id="attachmentPreview"
+                                     class="attachment-preview"
+                                     style="display:none;">
+
+                                    <img id="attachmentThumb"
+                                         alt="Preview" />
+
+                                    <div class="attachment-info">
+
+                                        <span id="attachmentName"></span>
+
+                                        <span id="attachmentSize"></span>
+
+                                    </div>
+
+                                    <button type="button"
+                                            id="removeAttachmentBtn"
+                                            class="btn btn-outline btn-xs">
+                                        Remove
+                                    </button>
+
+                                </div>
+
+
+                                <small class="form-hint">
+                                    PNG, JPG, GIF, or WEBP. Max 5 MB.
+                                </small>
+
+                            </div>
+
+
+                            <!-- Form Actions -->
+                            <div class="form-actions">
+
+                                <button type="button"
+                                        id="cancelNewTicket"
+                                        class="btn btn-outline">
+                                    Cancel
+                                </button>
+
+                                <button type="submit"
+                                        class="btn btn-primary"
+                                        id="submitTicketBtn">
+                                    Submit ticket
+                                </button>
+
+                            </div>
+
+
+                            <!-- Message -->
+                            <p id="newTicketMessage"
+                               class="form-message"></p>
+
+                        </form>
+
+                    </div>
+
+
+                    <!-- ================= TICKETS TABLE ================= -->
+                    <div class="card">
+
+                        <!-- Loading -->
+                        <div id="ticketsLoading"
+                             class="tickets-loading">
+                            Loading your tickets…
+                        </div>
+
+
+                        <!-- Empty State -->
+                        <div id="ticketsEmpty"
+                             class="tickets-empty"
+                             style="display:none;">
+
+                            <p>
+                                You haven't submitted any tickets yet.
+                            </p>
+
+                            <p style="color:#888;
+                                      font-size:14px;
+                                      margin-top:6px;">
+
+                                Click
+                                <strong>+ New Ticket</strong>
+                                to get started.
+
+                            </p>
+
+                        </div>
+
+
+                        <!-- Tickets Table -->
+                        <table id="ticketsTable"
+                               class="data-table"
+                               style="display:none;">
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>ID</th>
+
+                                    <th>Submitted</th>
+
+                                    <th>Description</th>
+
+                                    <th>Urgency</th>
+
+                                    <th>Status</th>
+
+                                    <th>Attachment</th>
+
+                                    <th>Actions</th>
+
+                                </tr>
+
+                            </thead>
+
+                            <tbody id="ticketsBody">
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </section>
+
+
+
+                <!-- ================= PROFILE PANEL ================= -->
+                <section id="profilePanel"
+                         class="admin-panel">
+
+                    <div class="panel-centered">
+
+                        <div class="panel-header"
+                             style="justify-content:center;
+                                    text-align:center;">
+
+                            <div>
+
+                                <h1>My Profile</h1>
+
+                                <p>
+                                    Update your name, email, cell number,
+                                    or password.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- Profile Card -->
+                        <div class="card">
+
+                            <!-- Loading -->
+                            <div id="profileLoading"
+                                 class="tickets-loading">
+                                Loading profile…
+                            </div>
+
+
+                            <!-- Profile Form -->
+                            <form id="profileForm"
+                                  style="display:none;">
+
+                                <!-- First Name / Last Name -->
+                                <div class="form-row">
+
+                                    <div class="form-group">
+
+                                        <label>
+                                            First name
+                                            <span class="req">*</span>
+                                        </label>
+
+                                        <input type="text"
+                                               id="pFirstName"
+                                               class="form-control"
+                                               required />
+
+                                    </div>
+
+
+                                    <div class="form-group">
+
+                                        <label>
+                                            Last name
+                                            <span class="req">*</span>
+                                        </label>
+
+                                        <input type="text"
+                                               id="pLastName"
+                                               class="form-control"
+                                               required />
+
+                                    </div>
+
+                                </div>
+
+
+                                <!-- Username -->
+                                <div class="form-group">
+
+                                    <label>
+                                        Username
+                                    </label>
+
+                                    <input type="text"
+                                           id="pUsername"
+                                           class="form-control"
+                                           disabled />
+
+                                    <small class="form-hint">
+                                        Username cannot be changed.
+                                    </small>
+
+                                </div>
+
+
+                                <!-- Email -->
+                                <div class="form-group">
+
+                                    <label>
+                                        Work email
+                                        <span class="req">*</span>
+                                    </label>
+
+                                    <input type="email"
+                                           id="pWorkEmail"
+                                           class="form-control"
+                                           required />
+
+                                </div>
+
+
+                                <!-- Cell Number / Staff Number -->
+                                <div class="form-row">
+
+                                    <div class="form-group">
+
+                                        <label>
+                                            Cell number
+                                        </label>
+
+                                        <input type="tel"
+                                               id="pCellNo"
+                                               class="form-control"
+                                               maxlength="12" />
+
+                                    </div>
+
+
+                                    <div class="form-group">
+
+                                        <label>
+                                            Staff number
+                                        </label>
+
+                                        <input type="text"
+                                               id="pStaffNo"
+                                               class="form-control"
+                                               disabled />
+
+                                    </div>
+
+                                </div>
+
+
+                                <!-- Change Password -->
+                                <h4 class="modal-section-title">
+                                    Change password (optional)
+                                </h4>
+
+
+                                <div class="form-group">
+
+                                    <label>
+                                        New password
+                                    </label>
+
+                                    <input type="password"
+                                           id="pNewPassword"
+                                           class="form-control"
+                                           minlength="6"
+                                           placeholder="Leave blank to keep current password" />
+
+                                    <small class="form-hint">
+                                        Minimum 6 characters.
+                                    </small>
+
+                                </div>
+
+
+                                <!-- Save -->
+                                <div class="form-actions"
+                                     style="justify-content:center;">
+
+                                    <button type="submit"
+                                            class="btn btn-primary"
+                                            id="saveProfileBtn">
+                                        Save changes
+                                    </button>
+
+                                </div>
+
+
+                                <!-- Profile Message -->
+                                <p id="profileMessage"
+                                   class="form-message"></p>
+
+                            </form>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+            </div>
+
+        </main>
+
+    </div>
+
+
+
+    <!-- ========================================================= -->
+    <!-- ================= EDIT TICKET MODAL ===================== -->
+    <!-- ========================================================= -->
+
+    <div id="editTicketModal"
+         class="modal-backdrop"
+         style="display:none;">
+
+        <div class="modal">
+
+            <h3>
+                Edit ticket
+                <span id="editTicketId"></span>
+            </h3>
+
+
+            <form id="editTicketForm"
+                  novalidate>
+
+                <!-- Issue Description -->
+                <div class="form-group">
+
+                    <label>
+                        Describe the issue
+                        <span class="req">*</span>
+                    </label>
+
+                    <textarea id="editIssueDescription"
+                              class="form-control"
+                              rows="4"
+                              maxlength="200"></textarea>
+
+                    <small class="form-hint">
+                        <span id="editCharCount">0</span>/200 characters
+                    </small>
+
+                </div>
+
+
+                <!-- Urgency -->
+                <div class="form-group">
+
+                    <label>
+                        Urgency
+                    </label>
+
+                    <select id="editUrgencyLevel"
+                            class="form-control">
+
+                        <option value="Low">
+                            Low
+                        </option>
+
+                        <option value="Medium">
+                            Medium
+                        </option>
+
+                        <option value="High">
+                            High
+                        </option>
+
+                        <option value="Critical">
+                            Critical
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- Actions -->
+                <div class="form-actions">
+
+                    <button type="button"
+                            id="cancelEditTicket"
+                            class="btn btn-outline">
+                        Cancel
+                    </button>
+
+                    <button type="submit"
+                            class="btn btn-primary"
+                            id="saveEditTicketBtn">
+                        Save changes
+                    </button>
+
+                </div>
+
+
+                <!-- Message -->
+                <p id="editTicketMessage"
+                   class="form-message"></p>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ========================================================= -->
+    <!-- ================= NOT FIXED MODAL ======================= -->
+
+    <div id="notFixedModal"
+         class="modal-backdrop"
+         style="display:none;">
+
+        <div class="modal">
+
+            <h3>
+                Issue still not resolved?
+                <span id="notFixedTicketId"></span>
+            </h3>
+
+
+            <form id="notFixedForm"
+                  novalidate>
+
+                <!-- Not Fixed Explanation -->
+                <div class="form-group">
+
+                    <label>
+                        What's still wrong?
+                        <span class="req">*</span>
+                    </label>
+
+                    <textarea id="notFixedNote"
+                              class="form-control"
+                              rows="4"
+                              maxlength="200"
+                              placeholder="e.g. The printer is still jamming after a few pages."></textarea>
+
+                    <small class="form-hint">
+                        <span id="notFixedCharCount">0</span>/200 characters
+                    </small>
+
+                </div>
+
+
+                <!-- Actions -->
+                <div class="form-actions">
+
+                    <button type="button"
+                            id="cancelNotFixed"
+                            class="btn btn-outline">
+                        Cancel
+                    </button>
+
+                    <button type="submit"
+                            class="btn btn-primary"
+                            id="submitNotFixedBtn">
+                        Send back to technician
+                    </button>
+
+                </div>
+
+
+                <!-- Message -->
+                <p id="notFixedMessage"
+                   class="form-message"></p>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+
+    <script src="../../js/api/apiClient.js"></script>
+
+    <script src="../../js/auth/session.js"></script>
+
+    <script src="../../js/pages/staffDashboard.js"></script>
+
+</body>
+</html>

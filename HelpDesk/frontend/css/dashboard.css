@@ -1,0 +1,435 @@
+﻿.dashboard {
+    padding: 32px 24px 64px;
+}
+
+.dashboard-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+    .dashboard-header h1 {
+        font-size: 26px;
+        font-weight: 700;
+    }
+
+.dashboard-subtitle {
+    font-size: 14px;
+    color: var(--neutral-500);
+    margin-top: 4px;
+}
+
+.new-ticket-panel {
+    margin-top: 0;
+    border-left: 4px solid var(--brand-green);
+}
+
+    .new-ticket-panel h3 {
+        margin-bottom: 16px;
+        font-size: 17px;
+    }
+
+.form-actions {
+    display: flex;
+    gap: 12px;
+    justify-content: flex-end;
+    margin-top: 16px;
+}
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+
+    .data-table thead th {
+        text-align: left;
+        padding: 12px 10px;
+        background: var(--neutral-100);
+        border-bottom: 2px solid var(--neutral-200);
+        font-size: 13px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.4px;
+        color: var(--neutral-700);
+    }
+
+    .data-table tbody td {
+        padding: 12px 10px;
+        border-bottom: 1px solid var(--neutral-200);
+        vertical-align: top;
+    }
+
+    .data-table tbody tr:hover {
+        background: #fafafa;
+    }
+
+.badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1.6;
+}
+
+.badge-open {
+    background: #e3f2fd;
+    color: #0d47a1;
+}
+
+.badge-assigned {
+    background: #ede7f6;
+    color: #4527a0;
+}
+
+.badge-inprogress {
+    background: #fff8e1;
+    color: #a35a00;
+}
+
+.badge-resolved {
+    background: #e8f5e9;
+    color: #1b5e20;
+}
+
+.badge-closed {
+    background: #eceff1;
+    color: #455a64;
+}
+
+.badge-cancelled {
+    background: #fdecea;
+    color: #b71c1c;
+}
+
+.badge-low {
+    background: #eceff1;
+    color: #37474f;
+}
+
+.badge-medium {
+    background: #e3f2fd;
+    color: #0d47a1;
+}
+
+.badge-high {
+    background: #fff3e0;
+    color: #e65100;
+}
+
+.badge-critical {
+    background: #fdecea;
+    color: #b71c1c;
+}
+
+.tickets-loading,
+.tickets-empty {
+    text-align: center;
+    padding: 32px 16px;
+    color: var(--neutral-500);
+    font-size: 14px;
+}
+
+.btn-outline-dark {
+    background: transparent;
+    color: var(--neutral-700);
+    border: 1px solid var(--neutral-200);
+}
+
+    .btn-outline-dark:hover {
+        background: var(--neutral-100);
+    }
+
+textarea.form-control {
+    resize: vertical;
+    min-height: 80px;
+    font-family: inherit;
+}
+
+.filter-tabs {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+    .filter-tabs .tab {
+        padding: 8px 16px;
+        background: var(--white);
+        border: 1px solid var(--neutral-200);
+        border-radius: 999px;
+        cursor: pointer;
+        font-size: 13px;
+        font-weight: 600;
+        color: var(--neutral-700);
+        transition: all 0.15s ease;
+    }
+
+        .filter-tabs .tab:hover {
+            background: var(--neutral-100);
+        }
+
+        .filter-tabs .tab.is-active {
+            background: var(--brand-green);
+            color: var(--white);
+            border-color: var(--brand-green);
+        }
+
+.stats-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 12px;
+}
+
+.stat-card {
+    background: var(--white);
+    border: 1px solid var(--neutral-200);
+    border-radius: var(--radius);
+    padding: 16px;
+    text-align: center;
+    box-shadow: var(--shadow-sm);
+}
+
+.stat-card--resolve {
+    border-left: 4px solid var(--brand-green);
+}
+
+.stat-value {
+    display: block;
+    font-size: 26px;
+    font-weight: 800;
+    color: var(--brand-green);
+}
+
+.stat-label {
+    display: block;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    color: var(--neutral-500);
+    margin-top: 4px;
+}
+
+.row-actions {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+
+.btn-xs {
+    padding: 4px 10px;
+    font-size: 12px;
+    border-radius: 4px;
+}
+
+.modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.modal {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 24px;
+    width: 100%;
+    max-width: 480px;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: var(--shadow-lg);
+}
+
+    .modal h3 {
+        margin-bottom: 16px;
+        font-size: 18px;
+    }
+
+.modal-body {
+    max-height: 65vh;
+    overflow-y: auto;
+    padding-right: 6px;
+}
+
+.form-control-file {
+    display: block;
+    width: 100%;
+    padding: 8px 0;
+    font-size: 14px;
+    color: var(--neutral-700);
+}
+.form-control-file::file-selector-button {
+    background: var(--white);
+    border: 1px solid var(--neutral-200);
+    border-radius: var(--radius-sm);
+    padding: 6px 12px;
+    margin-right: 12px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--neutral-700);
+    cursor: pointer;
+    transition: background 0.15s ease;
+}
+.form-control-file::file-selector-button:hover {
+    background: var(--neutral-100);
+}
+
+.attachment-preview {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 10px;
+    padding: 10px;
+    border: 1px solid var(--neutral-200);
+    border-radius: var(--radius-sm);
+    background: var(--neutral-100);
+}
+.attachment-preview img {
+    width: 56px;
+    height: 56px;
+    object-fit: cover;
+    border-radius: 4px;
+    border: 1px solid var(--neutral-200);
+    background: var(--white);
+}
+.attachment-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    font-size: 13px;
+    color: var(--neutral-700);
+    overflow: hidden;
+}
+.attachment-info span:first-child {
+    font-weight: 600;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.attachment-info span:last-child {
+    color: var(--neutral-500);
+    font-size: 12px;
+}
+
+.ticket-thumb {
+    width: 44px;
+    height: 44px;
+    object-fit: cover;
+    border-radius: 4px;
+    border: 1px solid var(--neutral-200);
+    background: var(--neutral-100);
+    cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.ticket-thumb:hover {
+    transform: scale(1.06);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+.role-badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 600;
+}
+.role-admin         { background: #ede7f6; color: #4527a0; }
+.role-technician    { background: #e3f2fd; color: #0d47a1; }
+.role-generalstaff  { background: #e8f5e9; color: #1b5e20; }
+.role-none          { background: #eceff1; color: #455a64; }
+
+
+.modal-section-title {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--neutral-500);
+    margin: 20px 0 10px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--neutral-200);
+}
+.modal-section-title:first-of-type {
+    margin-top: 0;
+}
+
+
+.home-page .hero {
+    padding-top: 96px;
+    padding-bottom: 112px;
+}
+
+@keyframes floatLogo {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-6px);
+    }
+}
+
+.hero-logo {
+    animation: floatLogo 5s ease-in-out infinite;
+}
+
+.badge-cancelled {
+    background: #fdecea;
+    color: #b71c1c;
+}
+
+.badge-confirmed {
+    background: #e0f7fa;
+    color: #006064;
+}
+
+.badge-confirmed {
+    background: #e0f7fa;
+    color: #006064;
+}
+
+.btn-danger-outline {
+    background: transparent;
+    color: #b71c1c;
+    border: 1px solid #f5c6cb;
+}
+
+    .btn-danger-outline:hover {
+        background: #fdecea;
+    }
+
+.btn-danger-outline {
+    background: transparent;
+    color: #b71c1c;
+    border: 1px solid #f5c6cb;
+}
+
+    .btn-danger-outline:hover {
+        background: #fdecea;
+        border-color: #ef9a9a;
+    }
+
+
+.badge-confirmed {
+    background: #e0f7fa;
+    color: #006064;
+}
+
+.row-actions .btn-outline {
+    background: transparent;
+    color: var(--neutral-700);
+    border: 1px solid var(--neutral-200);
+}
+
+    .row-actions .btn-outline:hover {
+        background: var(--neutral-100);
+        color: var(--neutral-900);
+        border-color: var(--neutral-300);
+    }
