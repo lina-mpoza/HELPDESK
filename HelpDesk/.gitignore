@@ -2,7 +2,15 @@
 [Oo]bj/
 [Ll]og/
 [Ll]ogs/
+*.dll
+*.exe
+*.pdb
+*.cache
+
+# Visual Studio / IDE Files
 .vs/
+.idea/
+.vscode/
 *.user
 *.suo
 *.userosscache
@@ -11,23 +19,32 @@
 *.pubxml.user
 PublishProfiles/
 
+# Configuration & Secrets
 appsettings.Development.json
 appsettings.Local.json
-
 secrets.json
-
 .env
 .env.local
+
+# Database Files
 
 *.mdf
 *.ldf
 *.ndf
+*.db
+*.sqlite
 
+# OS Generated Files
 .DS_Store
 Thumbs.db
-.idea/
-.vscode/
+Desktop.ini
 
+# Temporary & Log Files
 *.log
 *.tmp
 *.temp
+*.swp
+*~
+
+node_modules/
+npm-debug.log*

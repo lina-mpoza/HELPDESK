@@ -17,14 +17,6 @@ Built from scratch with **ASP.NET Core (C#)** on the backend, **Microsoft SQL Se
 - [API Endpoints](#api-endpoints)
 - [Running Locally](#running-locally)
 - [Configuration](#configuration)
-- [Using the App](#using-the-app)
-- [Attachments](#attachments)
-- [Email Sending](#email-sending)
-- [Password Reset](#password-reset)
-- [Known Limitations](#known-limitations)
-- [Future Enhancements](#future-enhancements)
-- [Credits](#credits)
-- [License](#license)
 
 ---
 

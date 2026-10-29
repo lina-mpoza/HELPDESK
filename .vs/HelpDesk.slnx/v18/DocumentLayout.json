@@ -1,12 +1,54 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\kubom\\OneDrive\\Documentos\\Information System 3\\Project\\HelpDesk\\HelpDesk\\",
-  "Documents": [],
+  "WorkspaceRootPath": "C:\\Users\\kubom\\Documents\\IS3\\Project\\HelpDesk\\HelpDesk\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{3A29435A-AFBB-A2BD-9BBE-E9AC8FE2D16B}|HelpDesk\\HelpDesk.csproj|c:\\users\\kubom\\documents\\is3\\project\\helpdesk\\helpdesk\\helpdesk\\.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{3A29435A-AFBB-A2BD-9BBE-E9AC8FE2D16B}|HelpDesk\\HelpDesk.csproj|solutionrelative:helpdesk\\.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3A29435A-AFBB-A2BD-9BBE-E9AC8FE2D16B}|HelpDesk\\HelpDesk.csproj|c:\\users\\kubom\\documents\\is3\\project\\helpdesk\\helpdesk\\helpdesk\\readme.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}",
+      "RelativeMoniker": "D:0:0:{3A29435A-AFBB-A2BD-9BBE-E9AC8FE2D16B}|HelpDesk\\HelpDesk.csproj|solutionrelative:helpdesk\\readme.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "README.md",
+              "DocumentMoniker": "C:\\Users\\kubom\\Documents\\IS3\\Project\\HelpDesk\\HelpDesk\\HelpDesk\\README.md",
+              "RelativeDocumentMoniker": "HelpDesk\\README.md",
+              "ToolTip": "C:\\Users\\kubom\\Documents\\IS3\\Project\\HelpDesk\\HelpDesk\\HelpDesk\\README.md",
+              "RelativeToolTip": "HelpDesk\\README.md",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABIAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
+              "WhenOpened": "2026-10-29T14:13:49.047Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": ".gitignore",
+              "DocumentMoniker": "C:\\Users\\kubom\\Documents\\IS3\\Project\\HelpDesk\\HelpDesk\\HelpDesk\\.gitignore",
+              "RelativeDocumentMoniker": "HelpDesk\\.gitignore",
+              "ToolTip": "C:\\Users\\kubom\\Documents\\IS3\\Project\\HelpDesk\\HelpDesk\\HelpDesk\\.gitignore",
+              "RelativeToolTip": "HelpDesk\\.gitignore",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2026-10-29T14:13:20.329Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
     }
   ]
 }

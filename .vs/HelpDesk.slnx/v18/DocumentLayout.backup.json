@@ -1,22 +1,14 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\kubom\\OneDrive\\Documentos\\Information System 3\\Project\\HelpDesk\\HelpDesk\\",
+  "WorkspaceRootPath": "C:\\Users\\kubom\\Documents\\IS3\\Project\\HelpDesk\\HelpDesk\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{3A29435A-AFBB-A2BD-9BBE-E9AC8FE2D16B}|HelpDesk\\HelpDesk.csproj|c:\\users\\kubom\\onedrive\\documentos\\information system 3\\project\\helpdesk\\helpdesk\\helpdesk\\readme.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}",
-      "RelativeMoniker": "D:0:0:{3A29435A-AFBB-A2BD-9BBE-E9AC8FE2D16B}|HelpDesk\\HelpDesk.csproj|solutionrelative:helpdesk\\readme.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3A29435A-AFBB-A2BD-9BBE-E9AC8FE2D16B}|HelpDesk\\HelpDesk.csproj|c:\\users\\kubom\\onedrive\\documentos\\information system 3\\project\\helpdesk\\helpdesk\\helpdesk\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{3A29435A-AFBB-A2BD-9BBE-E9AC8FE2D16B}|HelpDesk\\HelpDesk.csproj|solutionrelative:helpdesk\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3A29435A-AFBB-A2BD-9BBE-E9AC8FE2D16B}|HelpDesk\\HelpDesk.csproj|c:\\users\\kubom\\onedrive\\documentos\\information system 3\\project\\helpdesk\\helpdesk\\helpdesk\\.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "AbsoluteMoniker": "D:0:0:{3A29435A-AFBB-A2BD-9BBE-E9AC8FE2D16B}|HelpDesk\\HelpDesk.csproj|c:\\users\\kubom\\documents\\is3\\project\\helpdesk\\helpdesk\\helpdesk\\.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}",
       "RelativeMoniker": "D:0:0:{3A29435A-AFBB-A2BD-9BBE-E9AC8FE2D16B}|HelpDesk\\HelpDesk.csproj|solutionrelative:helpdesk\\.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3A29435A-AFBB-A2BD-9BBE-E9AC8FE2D16B}|HelpDesk\\HelpDesk.csproj|c:\\users\\kubom\\onedrive\\documentos\\information system 3\\project\\helpdesk\\helpdesk\\helpdesk\\repositories\\ticketrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3A29435A-AFBB-A2BD-9BBE-E9AC8FE2D16B}|HelpDesk\\HelpDesk.csproj|solutionrelative:helpdesk\\repositories\\ticketrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3A29435A-AFBB-A2BD-9BBE-E9AC8FE2D16B}|HelpDesk\\HelpDesk.csproj|c:\\users\\kubom\\documents\\is3\\project\\helpdesk\\helpdesk\\helpdesk\\readme.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}",
+      "RelativeMoniker": "D:0:0:{3A29435A-AFBB-A2BD-9BBE-E9AC8FE2D16B}|HelpDesk\\HelpDesk.csproj|solutionrelative:helpdesk\\readme.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,54 +22,28 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": ".gitignore",
-              "DocumentMoniker": "C:\\Users\\kubom\\OneDrive\\Documentos\\Information System 3\\Project\\HelpDesk\\HelpDesk\\HelpDesk\\.gitignore",
-              "RelativeDocumentMoniker": "HelpDesk\\.gitignore",
-              "ToolTip": "C:\\Users\\kubom\\OneDrive\\Documentos\\Information System 3\\Project\\HelpDesk\\HelpDesk\\HelpDesk\\.gitignore",
-              "RelativeToolTip": "HelpDesk\\.gitignore",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2026-10-29T13:17:26.482Z",
+              "DocumentIndex": 1,
+              "Title": "README.md",
+              "DocumentMoniker": "C:\\Users\\kubom\\Documents\\IS3\\Project\\HelpDesk\\HelpDesk\\HelpDesk\\README.md",
+              "RelativeDocumentMoniker": "HelpDesk\\README.md",
+              "ToolTip": "C:\\Users\\kubom\\Documents\\IS3\\Project\\HelpDesk\\HelpDesk\\HelpDesk\\README.md",
+              "RelativeToolTip": "HelpDesk\\README.md",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABIAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
+              "WhenOpened": "2026-10-29T14:13:49.047Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "README.md",
-              "DocumentMoniker": "C:\\Users\\kubom\\OneDrive\\Documentos\\Information System 3\\Project\\HelpDesk\\HelpDesk\\HelpDesk\\README.md",
-              "RelativeDocumentMoniker": "HelpDesk\\README.md",
-              "ToolTip": "C:\\Users\\kubom\\OneDrive\\Documentos\\Information System 3\\Project\\HelpDesk\\HelpDesk\\HelpDesk\\README.md",
-              "RelativeToolTip": "HelpDesk\\README.md",
-              "ViewState": "AgIAAF8AAAAAAAAAAAAgwG0AAAAUAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
-              "WhenOpened": "2026-10-29T13:06:41.625Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\Users\\kubom\\OneDrive\\Documentos\\Information System 3\\Project\\HelpDesk\\HelpDesk\\HelpDesk\\appsettings.json",
-              "RelativeDocumentMoniker": "HelpDesk\\appsettings.json",
-              "ToolTip": "C:\\Users\\kubom\\OneDrive\\Documentos\\Information System 3\\Project\\HelpDesk\\HelpDesk\\HelpDesk\\appsettings.json",
-              "RelativeToolTip": "HelpDesk\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAZAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2026-10-29T12:59:10.366Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "TicketRepository.cs",
-              "DocumentMoniker": "C:\\Users\\kubom\\OneDrive\\Documentos\\Information System 3\\Project\\HelpDesk\\HelpDesk\\HelpDesk\\Repositories\\TicketRepository.cs",
-              "RelativeDocumentMoniker": "HelpDesk\\Repositories\\TicketRepository.cs",
-              "ToolTip": "C:\\Users\\kubom\\OneDrive\\Documentos\\Information System 3\\Project\\HelpDesk\\HelpDesk\\HelpDesk\\Repositories\\TicketRepository.cs",
-              "RelativeToolTip": "HelpDesk\\Repositories\\TicketRepository.cs",
-              "ViewState": "AgIAAGoAAAAAAAAAAAAiwG0AAAAcAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-28T07:59:59.375Z",
+              "Title": ".gitignore",
+              "DocumentMoniker": "C:\\Users\\kubom\\Documents\\IS3\\Project\\HelpDesk\\HelpDesk\\HelpDesk\\.gitignore",
+              "RelativeDocumentMoniker": "HelpDesk\\.gitignore",
+              "ToolTip": "C:\\Users\\kubom\\Documents\\IS3\\Project\\HelpDesk\\HelpDesk\\HelpDesk\\.gitignore",
+              "RelativeToolTip": "HelpDesk\\.gitignore",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2026-10-29T14:13:20.329Z",
               "EditorCaption": ""
             }
           ]
