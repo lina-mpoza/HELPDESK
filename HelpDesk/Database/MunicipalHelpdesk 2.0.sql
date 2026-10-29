@@ -8,14 +8,6 @@ CREATE TABLE Departments (
     DepDescription VARCHAR(200)     NULL,
     CONSTRAINT PK_Departments PRIMARY KEY (DepID)
 );
-select * from Departments;
-
-
-
-
-
-
-
 
 
 CREATE TABLE EmploymentStatuses (
@@ -43,12 +35,6 @@ CREATE TABLE JobTitles (
     CONSTRAINT FK_JobTitles_JobLevels
         FOREIGN KEY (Job_Level_ID) REFERENCES JobLevels (Jbl_ID)
 );
-select * from JobTitles;
-
-
-
-
-
 
 
 
@@ -57,13 +43,6 @@ CREATE TABLE Municipalities (
     Municipal_Name NVARCHAR(50)      NULL,
     CONSTRAINT PK_Municipalities PRIMARY KEY (MID)
 );
-select * from Municipalities;
-
-
-
-
-
-
 
 
 CREATE TABLE MunicipalitiesDepartments (
@@ -76,11 +55,6 @@ CREATE TABLE MunicipalitiesDepartments (
     CONSTRAINT FK_MunDep_Departments
         FOREIGN KEY (DepID) REFERENCES Departments (DepID)
 );
-select * from MunicipalitiesDepartments;
-
-
-
-
 
 
 CREATE TABLE Statuses (
@@ -88,16 +62,6 @@ CREATE TABLE Statuses (
     Status_Name VARCHAR(30)      NULL,
     CONSTRAINT PK_Statuses PRIMARY KEY (Status_ID)
 );
-select * from Statuses;
-
-
-
-
-
-
-
-
-
 
 
 CREATE TABLE TechnicalIssues (
@@ -106,12 +70,6 @@ CREATE TABLE TechnicalIssues (
     Tech_Issue_Type        VARCHAR(100)     NULL,
     CONSTRAINT PK_TechnicalIssues PRIMARY KEY (Tech_Issue_ID)
 );
-select * from TechnicalIssues;
-
-
-
-
-
 
 CREATE TABLE TicketSolutions (
     Solution_ID     INT IDENTITY(1,1) NOT NULL,
@@ -119,14 +77,6 @@ CREATE TABLE TicketSolutions (
     Solution_Type   VARCHAR(200)     NULL,
     CONSTRAINT PK_TicketSolutions PRIMARY KEY (Solution_ID)
 );
-select * from TicketSolutions;
-
-
-
-
-
-
-
 
 CREATE TABLE Images (
     Image_ID     INT IDENTITY(1,1) NOT NULL,
@@ -135,11 +85,6 @@ CREATE TABLE Images (
     Mime_Type    VARCHAR(30)      NULL,
     CONSTRAINT PK_Images PRIMARY KEY (Image_ID)
 );
-select * from Images;
-
-
-
-
 
 
 CREATE TABLE Videos (
@@ -149,11 +94,6 @@ CREATE TABLE Videos (
     Mime_Type    NVARCHAR(30)      NULL,
     CONSTRAINT PK_Videos PRIMARY KEY (Video_ID)
 );
-select * from videos;
-
-
-
-
 
 CREATE TABLE Persons (
     Person_ID     INT IDENTITY(1,1) NOT NULL,
@@ -187,11 +127,6 @@ CREATE TABLE Staff (
     CONSTRAINT FK_Staff_JobTitles
         FOREIGN KEY (Job_ID)     REFERENCES JobTitles (Job_ID)
 );
-select * from staff;
-
-
-
-
 
 
 CREATE TABLE GeneralStaff (
@@ -201,14 +136,6 @@ CREATE TABLE GeneralStaff (
     CONSTRAINT FK_GeneralStaff_Staff
         FOREIGN KEY (Staff_ID) REFERENCES Staff (Staff_ID)
 );
-select * from GeneralStaff;
-
-
-
-
-
-
-
 
 CREATE TABLE HODs (
     HODID    INT IDENTITY(1,1) NOT NULL,
@@ -220,9 +147,6 @@ CREATE TABLE HODs (
     CONSTRAINT FK_HODs_Departments
         FOREIGN KEY (DepID)    REFERENCES Departments (DepID)
 );
-select * from HODs;
-
-
 
 
 CREATE TABLE ITAdmins (
@@ -232,8 +156,6 @@ CREATE TABLE ITAdmins (
     CONSTRAINT FK_ITAdmins_Staff
         FOREIGN KEY (Staff_ID) REFERENCES Staff (Staff_ID)
 );
-select * from ITAdmins;
-
 
 CREATE TABLE UserSupportStaff (
     USS_ID          INT IDENTITY(1,1) NOT NULL,
@@ -244,9 +166,6 @@ CREATE TABLE UserSupportStaff (
     CONSTRAINT FK_USS_Staff
         FOREIGN KEY (Staff_ID) REFERENCES Staff (Staff_ID)
 );
-select *  from UserSupportStaff;
-
-
 
 CREATE TABLE IssuesTickets (
     Ticket_ID         INT IDENTITY(1,1) NOT NULL,
@@ -273,7 +192,6 @@ CREATE TABLE IssuesTickets (
     CONSTRAINT FK_IssuesTickets_Statuses
         FOREIGN KEY (Current_Status_ID) REFERENCES Statuses (Status_ID)
 );
-select * from IssuesTickets;
 
 CREATE TABLE TicketAssignment (
     Assignment_ID          INT IDENTITY(1,1) NOT NULL,
@@ -295,8 +213,6 @@ CREATE TABLE TicketAssignment (
     CONSTRAINT FK_TicketAssignment_IssuesTickets
         FOREIGN KEY (Ticket_ID) REFERENCES IssuesTickets (Ticket_ID)
 );
-select * from TicketAssignment;
-
 
 CREATE TABLE USSTicketsTasks (
     UTT_ID       INT IDENTITY(1,1) NOT NULL,
@@ -316,7 +232,6 @@ CREATE TABLE USSTicketsTasks (
     CONSTRAINT FK_USSTicketsTasks_TicketSolutions
         FOREIGN KEY (Solution_ID) REFERENCES TicketSolutions (Solution_ID)
 );
-select * from USSTicketsTasks;
 
 CREATE TABLE TicketActivity (
     Activity_ID       INT IDENTITY(1,1) NOT NULL,
@@ -364,8 +279,6 @@ DECLARE @StaffID INT = SCOPE_IDENTITY();
 
 INSERT INTO ITAdmins (Staff_ID)
 VALUES (@StaffID);
-
-
 
 
 INSERT INTO Municipalities (Municipal_Name)
@@ -498,12 +411,3 @@ UPDATE Staff
 
  SELECT Person_ID, Username, WorkEmail, Reset_Otp, Reset_Expiry,
        DATEDIFF(SECOND, SYSUTCDATETIME(), Reset_Expiry) AS SecondsUntilExpiry
-FROM Persons
-WHERE WorkEmail = 'saleloolwabo99@gmail.com';
-update persons
-set workemail = 'kubompoza@gmail.com'
-where Person_ID = 6;
-
-select * from IssuesTickets;
-select * from persons;
-
